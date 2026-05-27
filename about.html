@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>About Us - Guangbo Industries (Thailand) Co., Ltd.</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        /* about 页面专用样式 */
+        .about-section {
+            padding: 2rem 0;
+            border-bottom: 1px solid #eef2f6;
+        }
+
+        .about-section:last-of-type {
+            border-bottom: none;
+            padding-bottom: 2rem;
+        }
+
+        .about-section h2 {
+            text-align: left;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #1e2a3e;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #9E2A2B;
+        }
+
+        .two-col {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .two-col .text-col {
+            flex: 1;
+        }
+
+        .two-col .image-col {
+            flex: 1;
+            text-align: center;
+        }
+
+        .two-col .image-col img {
+            max-width: 100%;
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            max-height: 280px;
+            object-fit: cover;
+        }
+
+        /* 统一前两个区域（Who We Are 和 Factory Location）图片右侧间距 */
+        @media (min-width: 769px) {
+
+            .two-col .image-col {
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            .two-col .image-col img {
+                margin-right: 1rem;
+                max-width: calc(100% - 1rem);
+                width: auto;
+            }
+
+            .location-img {
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            .location-img img {
+                margin-right: 1rem;
+                max-width: calc(100% - 1rem);
+                width: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .two-col .image-col,
+            .location-img {
+                justify-content: center;
+            }
+
+            .two-col .image-col img,
+            .location-img img {
+                margin-right: 0;
+                max-width: 100%;
+            }
+        }
+
+        .production-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .prod-col {
+            background: #fcfcfc;
+            border-radius: 1.5rem;
+            padding: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eef2f6;
+            overflow: hidden;
+        }
+
+        .prod-col h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #9E2A2B;
+            margin-bottom: 1rem;
+            text-align: center;
+            border-bottom: 2px solid rgba(158, 42, 43, 0.2);
+            display: inline-block;
+            width: auto;
+            padding-bottom: 0.3rem;
+        }
+
+        .gallery-scroll {
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            padding-bottom: 0.5rem;
+            margin: 0.5rem 0;
+            cursor: grab;
+        }
+
+        .gallery-scroll:active {
+            cursor: grabbing;
+        }
+
+        .gallery-track {
+            display: inline-flex;
+            gap: 1rem;
+            padding: 0.2rem 0.1rem;
+        }
+
+        .gallery-item {
+            width: 180px;
+            flex-shrink: 0;
+            white-space: normal;
+            background: white;
+            border-radius: 0.8rem;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eef2f6;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1e2a3e;
+            background: white;
+        }
+
+        .scroll-hint {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #9E2A2B;
+            margin-top: 0.3rem;
+        }
+
+        .cert-scroll {
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            padding-bottom: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .cert-track {
+            display: inline-flex;
+            gap: 2rem;
+            padding: 0.5rem 0.2rem;
+        }
+
+        .cert-item {
+            width: 280px;
+            white-space: normal;
+            background: white;
+            border-radius: 1rem;
+            padding: 1.2rem;
+            border: 1px solid #eef2f6;
+            text-align: center;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .cert-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .cert-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 0.8rem;
+        }
+
+        .cert-item p {
+            font-size: 0.9rem;
+            color: #5a6e7c;
+            margin-top: 0.3rem;
+            font-weight: 500;
+        }
+
+        .location-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .location-info {
+            background: #f8fafc;
+            border-radius: 1.5rem;
+            padding: 1.2rem;
+            flex: 2;
+        }
+
+        .location-info p {
+            margin: 0.5rem 0;
+        }
+
+        .location-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .location-img img {
+            width: 100%;
+            max-width: 220px;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ========= 团队 & 文化区域：全新布局 ========= */
+        /* 要求：上面一行三个，下面一行两个，居中对齐，不再使用原有的 grid 自动填充 */
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eef2f6;
+            transition: transform 0.2s;
+            cursor: pointer;
+            width: 280px;
+            /* 固定宽度，保证每行最多三个，自然换行后第一行三个第二行两个且居中 */
+            flex-shrink: 0;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .team-card .card-content {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .team-card .card-title {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #9E2A2B;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-card .card-desc {
+            font-size: 0.85rem;
+            color: #5a6e7c;
+            line-height: 1.4;
+        }
+
+        /* 移动端：让卡片占满宽度，但仍保持整洁 */
+        @media (max-width: 768px) {
+            .team-grid {
+                gap: 1.5rem;
+            }
+
+            .team-card {
+                width: 100%;
+                max-width: 360px;
+            }
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .lightbox-close:hover {
+            color: #9E2A2B;
+        }
+
+        @media (max-width: 992px) {
+            .production-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 1.5rem 0;
+            }
+
+            .about-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .two-col {
+                flex-direction: column;
+            }
+
+            .location-wrapper {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .location-img {
+                text-align: center;
+            }
+
+            .gallery-item {
+                width: 160px;
+            }
+
+            .cert-item {
+                width: 240px;
+            }
+        }
+
+        /* 红色头部样式 */
+        .about-header-red {
+            background: #9E2A2B;
+            padding: 7rem 0 3rem;
+            text-align: center;
+        }
+
+        .about-header-red h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .about-header-red p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .about-header-red {
+                padding: 5rem 0 2rem;
+            }
+
+            .about-header-red h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        .reveal-on-scroll {
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo"><a href="index.html"><img src="images/Guangbo.png"
+                        alt="Guangbo Industries (Thailand) Co., Ltd. Logo" style="height: 50px;"></a></div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <div class="nav-item-dropdown">
+                    <a href="products.html" class="nav-link">Products</a>
+                    <div class="dropdown-content">
+                        <a href="product-vacuum-breakers.html">Vacuum Breakers</a>
+                        <a href="product-frost-free-hydrants.html">Frost Free Sillcocks & Hydrants</a>
+                        <a href="product-fittings.html">Fittings</a>
+                        <a href="product-angle-valves.html">Angle Valves</a>
+                        <a href="product-valves.html">Valves</a>
+                        <a href="product-garden-irrigation.html">Garden Irrigation</a>
+                        <a href="product-hose-bibbs.html">Hose Bibbs</a>
+                        <a href="product-faucets-sanitary.html">Faucets & Sanitary Accessories</a>
+                        <a href="product-hardware-accessories.html">Hardware Accessories</a>
+                        <a href="product-plumb-bobs.html">Plumb Bobs</a>
+                    </div>
+                </div>
+                <a href="news&events.html" class="nav-link">News & Events</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </nav>
+            <div class="menu-toggle" id="mobile-menu"><i class="ri-menu-line"></i></div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 红色头部 -->
+        <div class="about-header-red reveal-on-scroll">
+            <div class="container">
+                <h1>About Guangbo Industries (Thailand)</h1>
+                <p>Your trusted partner in precision plumbing components</p>
+            </div>
+        </div>
+
+        <!-- Who We Are -->
+        <div class="about-section reveal-on-scroll">
+            <div class="container">
+                <h2>Who We Are</h2>
+                <div class="two-col">
+                    <div class="text-col">
+                        <p>Guangbo Industries (Thailand) Co., Ltd is located in AMATA Industrial Zone, Chonburi,
+                            Thailand. It is a professional manufacturer of vacuum breakers, sillcocks, wall hydrants,
+                            ground hydrants, yard hydrants, garden irrigation valves, hose connectors, nozzles, plumbing
+                            valves & fittings, plumb bobs, hardware accessories...</p>
+                        <p>Guangbo Industries is an integrated company with product development, production, sales, and
+                            service. With complete production process of forging, precision machining, assembling, and
+                            testing. Our products get good reputation among customers in North America, South America,
+                            Europe, Middle East and Asia.</p>
+                        <p>Established in 2023, our factory occupies 18,000 square meters' land, has 12,000 square
+                            meters' workshop. We have advanced production equipment and testing equipment, including 30
+                            sets of fully automatic machining equipment, 50 sets of CNC and 1 testing center.</p>
+                        <p>Customer satisfaction is our eternal pursuit, while constantly improving management method
+                            and customer service, we welcome customers from all over the world to contact us for mutual
+                            benefit!</p>
+                    </div>
+                    <div class="image-col">
+                        <img src="images/company-gate.png" alt="Guangbo Factory">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Factory Location -->
+        <div class="about-section reveal-on-scroll">
+            <div class="container">
+                <h2>Factory Location</h2>
+                <div class="location-wrapper">
+                    <div class="location-info">
+                        <p><strong>Address:</strong> 700/947 Moo 5, T.Nongkhaka, A.Panthong, Chonburi 20160, Thailand
+                        </p>
+                        <p><strong>Distance:</strong> 55 kilometers to Bangkok Airport (About 1 hour by car)</p>
+                        <p><strong>Distance:</strong> 69 kilometers to Laem Chabang Port (About 1 hour 20 minutes by
+                            car)</p>
+                    </div>
+                    <div class="location-img">
+                        <img src="About_US/Factory_Location.png" alt="Factory Location Map">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guangbo Team & Culture (上面一行三个，下面一行两个，居中) -->
+        <div class="about-section reveal-on-scroll">
+            <div class="container">
+                <h2>Guangbo Team & Culture</h2>
+                <div class="team-grid">
+                    <div class="team-card" data-img-src="About_US/Company_Team.png">
+                        <img src="About_US/Company_Team.png" alt="Our Team">
+                        <div class="card-content">
+                            <div class="card-title">Our Team</div>
+                            <div class="card-desc">Staff from China, Thailand & Myanmar, creating a diverse and
+                                collaborative environment.</div>
+                        </div>
+                    </div>
+                    <div class="team-card" data-img-src="About_US/Integrated_Office.png">
+                        <img src="About_US/Integrated_Office.png" alt="Integrated Office">
+                        <div class="card-content">
+                            <div class="card-title">Integrated Office</div>
+                            <div class="card-desc">Efficient administration & management hub.</div>
+                        </div>
+                    </div>
+                    <div class="team-card" data-img-src="About_US/Security_Training.png">
+                        <img src="About_US/Security_Training.png" alt="Security Training">
+                        <div class="card-content">
+                            <div class="card-title">Security Training</div>
+                            <div class="card-desc">Regular safety drills and awareness programs.</div>
+                        </div>
+                    </div>
+                    <div class="team-card" data-img-src="About_US/Health_Check_In_Hospital.png">
+                        <img src="About_US/Health_Check_In_Hospital.png" alt="Health Check">
+                        <div class="card-content">
+                            <div class="card-title">Health Check</div>
+                            <div class="card-desc">Annual health check-ups for all employees.</div>
+                        </div>
+                    </div>
+                    <div class="team-card" data-img-src="About_US/Internal_Training.png">
+                        <img src="About_US/Internal_Training.png" alt="Internal Training">
+                        <div class="card-content">
+                            <div class="card-title">Internal Training</div>
+                            <div class="card-desc">Technical & safety training to upskill workforce.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workshop & Production -->
+        <div class="about-section reveal-on-scroll">
+            <div class="container">
+                <h2>Workshop & Production</h2>
+                <div class="text-col" style="margin-bottom: 1rem;">
+                    <p>Our manufacturing facility is equipped with advanced machinery and strict quality control
+                        systems.</p>
+                    <ul
+                        style="margin-top: 0.5rem; list-style: none; padding-left: 0; display: flex; flex-wrap: wrap; gap: 1rem;">
+                        <li><i class="ri-flask-line" style="color:#9E2A2B; margin-right: 0.5rem;"></i> Testing
+                            (Pressure, Material, Function)</li>
+                        <li><i class="ri-tools-line" style="color:#9E2A2B; margin-right: 0.5rem;"></i> Assembling &
+                            Packing</li>
+                        <li><i class="ri-hard-drive-line" style="color:#9E2A2B; margin-right: 0.5rem;"></i> 30 auto
+                            machining sets</li>
+                        <li><i class="ri-cpu-line" style="color:#9E2A2B; margin-right: 0.5rem;"></i> 50 CNC machines
+                        </li>
+                        <li><i class="ri-bar-chart-2-line" style="color:#9E2A2B; margin-right: 0.5rem;"></i> 1 testing
+                            center</li>
+                    </ul>
+                </div>
+                <div class="production-grid">
+                    <!-- Machining -->
+                    <div class="prod-col">
+                        <h3>Machining</h3>
+                        <div class="gallery-scroll">
+                            <div class="gallery-track">
+                                <div class="gallery-item" data-img-src="About_US/Workshop_Machining_1.png"><img
+                                        src="About_US/Workshop_Machining_1.png" alt="Precision Machining">
+                                    <div class="gallery-caption">Precision Machining</div>
+                                </div>
+                                <div class="gallery-item" data-img-src="About_US/Workshop_Machining_2.png"><img
+                                        src="About_US/Workshop_Machining_2.png" alt="CNC Operation">
+                                    <div class="gallery-caption">CNC Operation</div>
+                                </div>
+                                <div class="gallery-item" data-img-src="About_US/Workshop_Machining_3.png"><img
+                                        src="About_US/Workshop_Machining_3.png" alt="Automatic Equipment">
+                                    <div class="gallery-caption">Automatic Equipment</div>
+                                </div>
+                                <div class="gallery-item" data-img-src="About_US/Workshop_Machining_4.png"><img
+                                        src="About_US/Workshop_Machining_4.png" alt="Quality Control">
+                                    <div class="gallery-caption">Quality Control</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scroll-hint">← Slide to see more →</div>
+                    </div>
+                    <!-- Testing -->
+                    <div class="prod-col">
+                        <h3>Testing</h3>
+                        <div class="gallery-scroll">
+                            <div class="gallery-track">
+                                <div class="gallery-item" data-img-src="About_US/Workshop_Testing_1.png"><img
+                                        src="About_US/Workshop_Testing_1.png" alt="Pressure Testing">
+                                    <div class="gallery-caption">Pressure Testing</div>
+                                </div>
+                                <div class="gallery-item" data-img-src="About_US/Workshop_Testing_2.png"><img
+                                        src="About_US/Workshop_Testing_2.png" alt="Material Analysis">
+                                    <div class="gallery-caption">Material Analysis</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scroll-hint">← Slide to see more →</div>
+                    </div>
+                    <!-- Assembling & Packing -->
+                    <div class="prod-col">
+                        <h3>Assembling & Packing</h3>
+                        <div class="gallery-scroll">
+                            <div class="gallery-track">
+                                <div class="gallery-item"
+                                    data-img-src="About_US/Workshop_Assembling_Packing_1.png"><img
+                                        src="About_US/Workshop_Assembling_Packing_1.png" alt="Assembly Line">
+                                    <div class="gallery-caption">Assembly Line</div>
+                                </div>
+                                <div class="gallery-item"
+                                    data-img-src="About_US/Workshop_Assembling_Packing_2.png"><img
+                                        src="About_US/Workshop_Assembling_Packing_2.png" alt="Packing Process">
+                                    <div class="gallery-caption">Packing Process</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scroll-hint">← Slide to see more →</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certifications & Standards -->
+        <div class="about-section reveal-on-scroll">
+            <div class="container">
+                <h2>Certifications & Standards</h2>
+                <div class="cert-scroll">
+                    <div class="cert-track">
+                        <div class="cert-item" data-img-src="About_US/ISO_Certificate.png"><img
+                                src="About_US/ISO_Certificate.png" alt="ISO Certificate">
+                            <p>ISO Certificate</p>
+                        </div>
+                        <div class="cert-item" data-img-src="About_US/UPC_Certificate_1.png"><img
+                                src="About_US/UPC_Certificate_1.png" alt="UPC Certificate 1">
+                            <p>UPC Certificate</p>
+                        </div>
+                        <div class="cert-item" data-img-src="About_US/UPC_Certificate_2.png"><img
+                                src="About_US/UPC_Certificate_2.png" alt="UPC Certificate 2">
+                            <p>UPC Certificate</p>
+                        </div>
+                        <div class="cert-item" data-img-src="About_US/UPC_Certificate_3.png"><img
+                                src="About_US/UPC_Certificate_3.png" alt="UPC Certificate 3">
+                            <p>UPC Certificate</p>
+                        </div>
+                        <div class="cert-item" data-img-src="About_US/UPC_Certificate_4.png"><img
+                                src="About_US/UPC_Certificate_4.png" alt="UPC Certificate 4">
+                            <p>UPC Certificate</p>
+                        </div>
+                        <div class="cert-item" data-img-src="About_US/UPC_Certificate_5.png"><img
+                                src="About_US/UPC_Certificate_5.png" alt="UPC Certificate 5">
+                            <p>UPC Certificate</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 1.5rem; color: #5a6e7c;">All products meet international
+                    safety and performance standards.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <img src="images/Guangbo.png" alt="Guangbo Logo" style="height: 40px;">
+                <p>&copy; 2026 Guangbo Industries (Thailand) Co., Ltd. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="">
+    </div>
+    <script>
+        (function () {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeBtn = document.querySelector('.lightbox-close');
+            function showImage(src) { lightboxImg.src = src; lightbox.classList.add('active'); }
+            function hideLightbox() { lightbox.classList.remove('active'); lightboxImg.src = ''; }
+            const clickableSelectors = '.gallery-item, .cert-item, .team-card, .two-col .image-col img, .location-img img';
+            document.querySelectorAll(clickableSelectors).forEach(el => {
+                el.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    let imgSrc = '';
+                    if (this.tagName === 'IMG') imgSrc = this.src;
+                    else { const img = this.querySelector('img'); if (img) imgSrc = img.src; }
+                    if (imgSrc) showImage(imgSrc);
+                });
+            });
+            closeBtn.addEventListener('click', hideLightbox);
+            lightbox.addEventListener('click', hideLightbox);
+        })();
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
