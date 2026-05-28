@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Products - Guangbo Industries (Thailand) Co., Ltd.</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        /* 彻底消灭横向滚动 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: clip;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            overflow-x: clip;
+        }
+
+        .product-card {
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: white;
+            border-radius: 20px;
+            padding: 1.8rem;
+            border: 1px solid #eef2f6;
+            overflow: hidden;
+            /* 防止绝对定位图片溢出 */
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(158, 42, 43, 0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+        }
+
+        .product-card h3 {
+            font-size: 1.3rem;
+            margin: 0.5rem 0;
+        }
+
+        /* 修复绝对定位 CUPC 图标，防止溢出右侧 */
+        .c-upc-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 36px !important;
+            height: auto !important;
+            max-width: 36px;
+            z-index: 1;
+        }
+
+        .product-card .c-upc-text {
+            font-size: 0.85rem;
+            color: #5a6e7c;
+            margin: 0.5rem 0 1rem;
+        }
+
+        .product-card .btn-detail {
+            display: inline-block;
+            background: #9E2A2B;
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: auto;
+            transition: background 0.2s;
+        }
+
+        .product-card .btn-detail:hover {
+            background: #7a1f20;
+        }
+
+        .product-grid {
+            margin-top: 2.5rem;
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
+
+        /* 红色头部样式 */
+        .products-header-red {
+            background: #9E2A2B;
+            padding: 7rem 0 3rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .products-header-red h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .products-header-red p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .products-header-red {
+                padding: 5rem 0 2rem;
+            }
+
+            .products-header-red h1 {
+                font-size: 2.2rem;
+            }
+
+            .product-grid {
+                margin-top: 2rem;
+                gap: 1.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .c-upc-icon {
+                width: 30px !important;
+                right: 12px;
+                top: 12px;
+            }
+
+            .product-card {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo"><a href="index.html"><img src="images/Guangbo.png"
+                        alt="Guangbo Industries (Thailand) Co., Ltd. Logo" style="height: 50px;"></a></div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <div class="nav-item-dropdown">
+                    <a href="products.html" class="nav-link">Products</a>
+                    <div class="dropdown-content">
+                        <a href="product-vacuum-breakers.html">Vacuum Breakers</a>
+                        <a href="product-frost-free-hydrants.html">Frost Free Sillcocks & Hydrants</a>
+                        <a href="product-fittings.html">Fittings</a>
+                        <a href="product-angle-valves.html">Angle Valves</a>
+                        <a href="product-valves.html">Valves</a>
+                        <a href="product-garden-irrigation.html">Garden Irrigation</a>
+                        <a href="product-hose-bibbs.html">Hose Bibbs</a>
+                        <a href="product-faucets-sanitary.html">Faucets & Sanitary Accessories</a>
+                        <a href="product-hardware-accessories.html">Hardware Accessories</a>
+                        <a href="product-plumb-bobs.html">Plumb Bobs</a>
+                    </div>
+                </div>
+                <a href="news&events.html" class="nav-link">News & Events</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </nav>
+            <div class="menu-toggle" id="mobile-menu"><i class="ri-menu-line"></i></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="products-header-red reveal-on-scroll">
+            <div class="container">
+                <h1>Main Products In Thailand Factory</h1>
+                <p>CUPC certified • Engineered for reliability</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="product-grid">
+                <div class="product-card reveal-on-scroll">
+                    <img src="images/CUPC.png" alt="CUPC" class="c-upc-icon">
+                    <img src="images/Vacuum_Breakers.png" alt="Vacuum Breakers">
+                    <h3>Vacuum Breakers</h3>
+                    <div class="c-upc-text">CUPC file no. 8733, 14805</div>
+                    <a href="product-vacuum-breakers.html" class="btn-detail">Learn More →</a>
+                </div>
+                <div class="product-card reveal-on-scroll">
+                    <img src="images/CUPC.png" alt="CUPC" class="c-upc-icon">
+                    <img src="images/Frost_Free_Sillcocks_Hydrants.png" alt="Frost Free Hydrants">
+                    <h3>Frost Free Sillcocks & Hydrants Series</h3>
+                    <div class="c-upc-text">CUPC file no. 16607</div>
+                    <a href="product-frost-free-hydrants.html" class="btn-detail">Learn More →</a>
+                </div>
+                <div class="product-card reveal-on-scroll">
+                    <img src="images/CUPC.png" alt="CUPC" class="c-upc-icon">
+                    <img src="images/Fittings.png" alt="Fittings">
+                    <h3>Fitting Series</h3>
+                    <div class="c-upc-text">CUPC file no. 16607</div>
+                    <a href="product-fittings.html" class="btn-detail">Learn More →</a>
+                </div>
+                <div class="product-card reveal-on-scroll">
+                    <img src="images/Angle_Valves.png" alt="Angle Valves">
+                    <h3>Angle Valves Series</h3>
+                    <a href="product-angle-valves.html" class="btn-detail">Learn More →</a>
+                </div>
+                <div class="product-card reveal-on-scroll">
+                    <img src="images/CUPC.png" alt="CUPC" class="c-upc-icon">
+                    <img src="images/Valves.png" alt="Valves">
+                    <h3>Valves Series</h3>
+                    <div class="c-upc-text">CUPC file no. 16607</div>
+                    <a href="product-valves.html" class="btn-detail">Learn More →</a>
+                </div>
+                <div class="product-card reveal-on-scroll">
+                    <img src="images/Garden_Irrigation.png" alt="Garden Irrigation">
+                    <h3>Garden Irrigation Series</h3>
+                    <a href="product-garden-irrigation.html" class="btn-detail">Learn More →</a>
+                </div>
+                <div class="product-card reveal-on-scroll">
+                    <img src="images/Hose_Bibbs.png" alt="Hose Bibbs">
+                    <h3>Hose Bibbs Series</h3>
+                    <a href="product-hose-bibbs.html" class="btn-detail">Learn More →</a>
+                </div>
+                <div class="product-card reveal-on-scroll">
+                    <img src="images/Faucets_Sanitary_Accessories.png" alt="Faucets & Sanitary">
+                    <h3>Faucets & Sanitary Accessories Series</h3>
+                    <a href="product-faucets-sanitary.html" class="btn-detail">Learn More →</a>
+                </div>
+                <div class="product-card reveal-on-scroll">
+                    <img src="images/Hardware_Accessories.png" alt="Hardware Accessories">
+                    <h3>Hardware Accessories Series</h3>
+                    <a href="product-hardware-accessories.html" class="btn-detail">Learn More →</a>
+                </div>
+                <div class="product-card reveal-on-scroll">
+                    <img src="images/Plumb_Bobs.png" alt="Plumb Bobs">
+                    <h3>Plumb Bobs</h3>
+                    <a href="product-plumb-bobs.html" class="btn-detail">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <img src="images/Guangbo.png" alt="Guangbo Logo" style="height: 40px;">
+                <p>&copy; 2026 Guangbo Industries (Thailand) Co., Ltd. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
