@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>News & Events - Guangbo Industries (Thailand) Co., Ltd.</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fff !important;
+        }
+
+        .news-page {
+            padding: 2rem 0 4rem;
+            background: #fff;
+        }
+
+        /* 红色头部样式 - 减少上下内边距，让卡片更快出现 */
+        .news-header-red {
+            background: #9E2A2B;
+            padding: 7rem 0 3rem;
+            /* 原为 7rem 0 3rem，大幅减小 */
+            text-align: center;
+        }
+
+        .news-header-red h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .news-header-red p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .news-header-red {
+                padding: 5rem 0 2rem;
+            }
+
+            .news-header-red h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+            /* 减少上边距 */
+        }
+
+        .news-item {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #eef2f6;
+            cursor: pointer;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(158, 42, 43, 0.15);
+        }
+
+        .event-image {
+            width: 100%;
+            height: 160px;
+            object-fit: contain;
+            background: #fef2f2;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+        }
+
+        /* 图片缺失时的占位样式 */
+        .event-image[src=""],
+        .event-image:not([src]) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+            color: #999;
+            font-size: 0.8rem;
+        }
+
+        .event-badge {
+            display: inline-block;
+            background: #9E2A2B;
+            color: white;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .event-badge.past {
+            background: #9E2A2B;
+        }
+
+        .news-item h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.4rem;
+            color: #1e2a3e;
+        }
+
+        .event-detail {
+            color: #5a6e7c;
+            font-size: 0.95rem;
+            margin: 0.6rem 0;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .event-detail i {
+            width: 1.4rem;
+            color: #9E2A2B;
+            font-size: 1.1rem;
+        }
+
+        .booth-number {
+            display: inline-block;
+            background: rgba(158, 42, 43, 0.1);
+            color: #9E2A2B;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin: 0.8rem 0 0.5rem;
+        }
+
+        .event-description {
+            margin-top: 1rem;
+            line-height: 1.5;
+            color: #2c3e4e;
+        }
+
+        .concluded-note {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #9E2A2B;
+            font-weight: 500;
+            border-top: 1px dashed #e0e7ed;
+            padding-top: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/Guangbo.png" alt="Guangbo Industries (Thailand) Co., Ltd. Logo"
+                        style="height: 50px;">
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <div class="nav-item-dropdown">
+                    <a href="products.html" class="nav-link">Products</a>
+                    <div class="dropdown-content">
+                        <a href="product-vacuum-breakers.html">Vacuum Breakers</a>
+                        <a href="product-frost-free-hydrants.html">Frost Free Sillcocks & Hydrants</a>
+                        <a href="product-fittings.html">Fittings</a>
+                        <a href="product-angle-valves.html">Angle Valves</a>
+                        <a href="product-valves.html">Valves</a>
+                        <a href="product-garden-irrigation.html">Garden Irrigation</a>
+                        <a href="product-hose-bibbs.html">Hose Bibbs</a>
+                        <a href="product-faucets-sanitary.html">Faucets & Sanitary Accessories</a>
+                        <a href="product-hardware-accessories.html">Hardware Accessories</a>
+                        <a href="product-plumb-bobs.html">Plumb Bobs</a>
+                    </div>
+                </div>
+                <a href="news&events.html" class="nav-link">News & Events</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="ri-menu-line"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="news-header-red reveal-on-scroll">
+            <div class="container">
+                <h1>News & Events</h1>
+                <p>Stay updated with the latest from Guangbo</p>
+            </div>
+        </div>
+
+        <div class="container news-page">
+            <div class="news-grid reveal-on-scroll">
+                <!-- 活动 1: IBS 2025 -->
+                <div class="news-item" onclick="window.open('https://buildersshow.com', '_blank')">
+                    <img src="News_Events/IBS_2025.png" alt="IBS 2025" class="event-image"
+                        onerror="this.onerror=null; this.style.opacity='0.6'; this.alt='Image missing'">
+                    <div class="event-badge past">Past Event</div>
+                    <h3>International Builders' Show (IBS) 2025</h3>
+                    <div class="event-detail"><i class="ri-calendar-line"></i> February 25 - 27, 2025</div>
+                    <div class="event-detail"><i class="ri-map-pin-line"></i> Las Vegas, USA</div>
+                    <div class="event-detail"><i class="ri-store-2-line"></i> Booth Number: <strong>91</strong></div>
+                    <div class="booth-number">Booth 91</div>
+                    <div class="event-description">
+                        Guangbo Industries successfully showcased our latest plumbing solutions, including vacuum
+                        breakers, frost-free hydrants, and fittings at IBS 2025. We received positive feedback from
+                        North American
+                        customers on our CUPC certified products.
+                    </div>
+                    <div class="concluded-note">
+                        <i class="ri-checkbox-circle-line"></i> This event has concluded.
+                    </div>
+                </div>
+
+                <!-- 活动 2: NHS 2025 -->
+                <div class="news-item" onclick="window.open('https://www.nationalhardwareshow.com', '_blank')">
+                    <img src="News_Events/NHS_2025.png" alt="NHS 2025" class="event-image"
+                        onerror="this.onerror=null; this.style.opacity='0.3'; this.alt='Image missing'">
+                    <div class="event-badge past">Past Event</div>
+                    <h3>National Hardware Show (NHS) 2025</h3>
+                    <div class="event-detail"><i class="ri-calendar-line"></i> March 18 - 20, 2025</div>
+                    <div class="event-detail"><i class="ri-map-pin-line"></i> West Hall, Las Vegas Convention Center
+                    </div>
+                    <div class="event-detail"><i class="ri-store-2-line"></i> Booth Number: <strong>W1816</strong></div>
+                    <div class="booth-number">Booth W1816</div>
+                    <div class="event-description">
+                        We had a great presence at NHS 2025, presenting our extensive range of garden irrigation,
+                        hose bibbs, valves, and hardware accessories. Many distributors and contractors visited our
+                        booth and established initial cooperation.
+                    </div>
+                    <div class="concluded-note">
+                        <i class="ri-checkbox-circle-line"></i> This event has concluded.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <img src="images/Guangbo.png" alt="Guangbo Logo" style="height: 40px;">
+                <p>&copy; 2026 Guangbo Industries (Thailand) Co., Ltd. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
